@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @score.user_id %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @score.project_id %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @score.duration %>
+</p>
+
+<p>
+  <strong>Specs:</strong>
+  <%= @score.specs %>
+</p>
+
+<p>
+  <strong>Succeeded:</strong>
+  <%= @score.succeeded %>
+</p>
+
+<p>
+  <strong>Failed:</strong>
+  <%= @score.failed %>
+</p>
+
+<p>
+  <strong>Pending:</strong>
+  <%= @score.pending %>
+</p>
+
+<%= link_to 'Edit', edit_score_path(@score) %> |
+<%= link_to 'Back', scores_path %>
