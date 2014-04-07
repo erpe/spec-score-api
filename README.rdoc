@@ -1,3 +1,5 @@
+{<img src="https://codeclimate.com/github/erpe/spec-score-api.png" />}[https://codeclimate.com/github/erpe/spec-score-api]
+
 = SpecScoreApi
 
 api as a rails-engine 
