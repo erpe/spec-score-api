@@ -20,7 +20,7 @@ require 'spec_helper'
 
 module SpecScoreApi
   describe ScoresController do
-
+    routes { SpecScoreApi::Engine.routes }
     # This should return the minimal set of attributes required to create a valid
     # Score. As you add validations to Score, be sure to
     # adjust the attributes here as well.

@@ -1,6 +1,6 @@
 <h1>Editing score</h1>
 
-<%= render 'form' %>
+<%= render 'spec_score_api/scores/form' %>
 
-<%= link_to 'Show', @score %> |
-<%= link_to 'Back', scores_path %>
+<%= link_to 'Show', spec_score_api.score_path(@score) %> |
+<%= link_to 'Back', spec_score_api.scores_path %>

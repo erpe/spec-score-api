@@ -1,4 +1,5 @@
-<%= form_for(@score) do |f| %>
+<% action = @score.new_record? ? spec_score_api.scores_path : spec_score_api.score_path(@score) %>
+<%= form_for(@score, url: action ) do |f| %>
   <% if @score.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@score.errors.count, "error") %> prohibited this score from being saved:</h2>

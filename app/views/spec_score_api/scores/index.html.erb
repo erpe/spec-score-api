@@ -26,9 +26,9 @@
         <td><%= score.succeeded %></td>
         <td><%= score.failed %></td>
         <td><%= score.pending %></td>
-        <td><%= link_to 'Show', score %></td>
-        <td><%= link_to 'Edit', edit_score_path(score) %></td>
-        <td><%= link_to 'Destroy', score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', spec_score_api.score_path(score) %></td>
+        <td><%= link_to 'Edit', spec_score_api.edit_score_path(score) %></td>
+        <td><%= link_to 'Destroy', spec_score_api.score_path(score), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Score', new_score_path %>
+<%= link_to 'New Score', spec_score_api.new_score_path %>

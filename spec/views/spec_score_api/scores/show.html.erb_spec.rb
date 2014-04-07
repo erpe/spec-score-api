@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "scores/show" do
   before(:each) do
-    @score = assign(:score, stub_model(Score,
+    @score = assign(:score, stub_model(SpecScoreApi::Score,
       :user_id => 1,
       :project_id => 2,
       :duration => 1.5,
@@ -14,7 +14,7 @@ describe "scores/show" do
   end
 
   it "renders attributes in <p>" do
-    render
+    render template: 'spec_score_api/scores/show'
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/1/)
     rendered.should match(/2/)
