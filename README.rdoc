@@ -1,4 +1,5 @@
-{<img src="https://codeclimate.com/github/erpe/spec-score-api.png" />}[https://codeclimate.com/github/erpe/spec-score-api]
+{<img src="https://codeclimate.com/github/erpe/spec-score-api.png" />}[https://codeclimate.com/github/erpe/spec-score-api] 
+{<img src="https://travis-ci.org/erpe/spec-score-api.svg" alt="Build Status" />}[https://travis-ci.org/erpe/spec-score-api] 
 
 = SpecScoreApi
 
