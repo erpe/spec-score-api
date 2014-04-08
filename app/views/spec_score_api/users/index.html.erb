@@ -1,0 +1,41 @@
+<h1>Listing users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Nick</th>
+      <th>Count specs</th>
+      <th>Count succeeded</th>
+      <th>Count failures int</th>
+      <th>Overall duration</th>
+      <th>Count scores</th>
+      <th>Api token</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.nick %></td>
+        <td><%= user.count_specs %></td>
+        <td><%= user.count_succeeded %></td>
+        <td><%= user.count_failures_int %></td>
+        <td><%= user.overall_duration %></td>
+        <td><%= user.count_scores %></td>
+        <td><%= user.api_token %></td>
+        <td><%= link_to 'Show', spec_score_api.user_path(user) %></td>
+        <td><%= link_to 'Edit', spec_score_api.edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', spec_score_api.user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', spec_score_api.new_user_path %>

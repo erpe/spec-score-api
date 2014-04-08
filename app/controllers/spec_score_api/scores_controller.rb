@@ -7,6 +7,10 @@ module SpecScoreApi
     # GET /scores
     def index
       @scores = Score.all
+      respond_to do |format|
+        format.json { render json: @scores }
+        format.html 
+      end
     end
 
     # GET /scores/1

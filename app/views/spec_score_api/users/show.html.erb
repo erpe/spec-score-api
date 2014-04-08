@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Nick:</strong>
+  <%= @user.nick %>
+</p>
+
+<p>
+  <strong>Count specs:</strong>
+  <%= @user.count_specs %>
+</p>
+
+<p>
+  <strong>Count succeeded:</strong>
+  <%= @user.count_succeeded %>
+</p>
+
+<p>
+  <strong>Count failures int:</strong>
+  <%= @user.count_failures_int %>
+</p>
+
+<p>
+  <strong>Overall duration:</strong>
+  <%= @user.overall_duration %>
+</p>
+
+<p>
+  <strong>Count scores:</strong>
+  <%= @user.count_scores %>
+</p>
+
+<p>
+  <strong>Api token:</strong>
+  <%= @user.api_token %>
+</p>
+
+<%= link_to 'Edit', spec_score_api.edit_user_path(@user) %> |
+<%= link_to 'Back', spec_score_api.users_path %>

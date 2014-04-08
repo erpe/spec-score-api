@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405142334) do
+ActiveRecord::Schema.define(version: 20140408083757) do
 
-  create_table "spec_score_api_scores", force: true do |t|
+  create_table "scores", force: true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
     t.float    "duration",   default: 0.0
@@ -25,7 +25,23 @@ ActiveRecord::Schema.define(version: 20140405142334) do
     t.datetime "updated_at"
   end
 
-  add_index "spec_score_api_scores", ["project_id"], name: "index_spec_score_api_scores_on_project_id"
-  add_index "spec_score_api_scores", ["user_id"], name: "index_spec_score_api_scores_on_user_id"
+  add_index "scores", ["project_id"], name: "index_scores_on_project_id"
+  add_index "scores", ["user_id"], name: "index_scores_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "nick"
+    t.integer  "count_specs",      default: 0
+    t.integer  "count_succeeded",  default: 0
+    t.integer  "count_failures",   default: 0
+    t.float    "overall_duration", default: 0.0
+    t.integer  "count_scores",     default: 0
+    t.string   "api_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["api_token"], name: "index_users_on_api_token"
+  add_index "users", ["email"], name: "index_users_on_email"
 
 end

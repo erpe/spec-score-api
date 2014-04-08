@@ -1,0 +1,50 @@
+<% url = @user.new_record? ? spec_score_api.users_path : spec_score_api.user_path(@user) %>
+<%= form_for(@user, url: url) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :nick %><br>
+    <%= f.text_field :nick %>
+  </div>
+  <div class="field">
+    <%= f.label :count_specs %><br>
+    <%= f.text_field :count_specs %>
+  </div>
+  <div class="field">
+    <%= f.label :count_succeeded %><br>
+    <%= f.text_field :count_succeeded %>
+  </div>
+  <div class="field">
+    <%= f.label :count_failures_int %><br>
+    <%= f.text_field :count_failures_int %>
+  </div>
+  <div class="field">
+    <%= f.label :overall_duration %><br>
+    <%= f.text_field :overall_duration %>
+  </div>
+  <div class="field">
+    <%= f.label :count_scores %><br>
+    <%= f.text_field :count_scores %>
+  </div>
+  <div class="field">
+    <%= f.label :api_token %><br>
+    <%= f.text_field :api_token %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
