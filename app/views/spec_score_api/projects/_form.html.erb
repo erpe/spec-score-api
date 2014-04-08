@@ -1,0 +1,46 @@
+<% url = @project.new_record? ? spec_score_api.projects_path : spec_score_api.project_path(@project) %>
+<%= form_for(@project, url: url) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :owner_id %><br>
+    <%= f.number_field :owner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :count_specs %><br>
+    <%= f.number_field :count_specs %>
+  </div>
+  <div class="field">
+    <%= f.label :count_succeeded %><br>
+    <%= f.number_field :count_succeeded %>
+  </div>
+  <div class="field">
+    <%= f.label :count_failures %><br>
+    <%= f.number_field :count_failures %>
+  </div>
+  <div class="field">
+    <%= f.label :count_pending %><br>
+    <%= f.number_field :count_pending %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br>
+    <%= f.text_field :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :count_of_scores %><br>
+    <%= f.number_field :count_of_scores %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

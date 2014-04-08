@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @project.owner_id %>
+</p>
+
+<p>
+  <strong>Count specs:</strong>
+  <%= @project.count_specs %>
+</p>
+
+<p>
+  <strong>Count succeeded:</strong>
+  <%= @project.count_succeeded %>
+</p>
+
+<p>
+  <strong>Count failures:</strong>
+  <%= @project.count_failures %>
+</p>
+
+<p>
+  <strong>Count pending:</strong>
+  <%= @project.count_pending %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @project.duration %>
+</p>
+
+<p>
+  <strong>Count of scores:</strong>
+  <%= @project.count_of_scores %>
+</p>
+
+<%= link_to 'Edit', spec_score_api.edit_project_path(@project) %> |
+<%= link_to 'Back', spec_score_api.projects_path %>

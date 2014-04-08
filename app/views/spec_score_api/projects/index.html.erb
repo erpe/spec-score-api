@@ -1,0 +1,39 @@
+<h1>Listing projects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Owner</th>
+      <th>Count specs</th>
+      <th>Count succeeded</th>
+      <th>Count failures</th>
+      <th>Count pending</th>
+      <th>Duration</th>
+      <th>Count of scores</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.owner_id %></td>
+        <td><%= project.count_specs %></td>
+        <td><%= project.count_succeeded %></td>
+        <td><%= project.count_failures %></td>
+        <td><%= project.count_pending %></td>
+        <td><%= project.duration %></td>
+        <td><%= project.count_of_scores %></td>
+        <td><%= link_to 'Show', spec_score_api.project_path(project) %></td>
+        <td><%= link_to 'Edit', spec_score_api.edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', spec_score_api.project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', spec_score_api.new_project_path %>
