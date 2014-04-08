@@ -5,7 +5,7 @@ gemfile:
 
 before_script:
   - cp ./spec/test_app/config/database.yml.travis ./spec/test_app/config/database.yml
-  - bundle exec rake db:app:migrate
+  - bundle exec rake db:migrate RAILS_ENV=test
   - ci/setup.sh
 
 rvm:
