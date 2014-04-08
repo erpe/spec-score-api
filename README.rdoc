@@ -1,6 +1,10 @@
 {<img src="https://codeclimate.com/github/erpe/spec-score-api.png" />}[https://codeclimate.com/github/erpe/spec-score-api] 
 {<img src="https://travis-ci.org/erpe/spec-score-api.svg" alt="Build Status" />}[https://travis-ci.org/erpe/spec-score-api] 
 
+
+
 = SpecScoreApi
 
 api as a rails-engine 
+
+develop: {<img src="https://coveralls.io/repos/erpe/spec-score-api/badge.png?branch=develop" alt="Coverage Status" />}[https://coveralls.io/r/erpe/spec-score-api?branch=develop]
