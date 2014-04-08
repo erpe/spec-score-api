@@ -5,8 +5,11 @@ gemfile:
 
 before_script:
   - cp ./spec/test_app/config/database.yml.travis ./spec/test_app/config/database.yml
-  - bundle exec rake db:migrate RAILS_ENV=test
-    #  - ci/setup.sh
+  - bundle exec rake app:db:migrate RAILS_ENV=test
+    #- cd spec/test_app
+    #- bundle exec rake spec_score_api:install:migrations
+    #- bundle exec rake db:migrate RAILS_ENV=test
+    # cd ../../
 
 rvm:
   - '2.0.0'
