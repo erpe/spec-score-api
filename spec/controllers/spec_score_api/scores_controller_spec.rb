@@ -129,7 +129,9 @@ module SpecScoreApi
           score = Score.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           Score.any_instance.stub(:save).and_return(false)
-          put :update, {id: score.to_param, score: { "user_id" => "invalid value" }}, valid_session
+          put :update,  { id: score.to_param, 
+                          score: { "user_id" => "invalid value" }
+                        }, valid_session
           assigns(:score).should eq(score)
         end
 
@@ -137,7 +139,9 @@ module SpecScoreApi
           score = Score.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           Score.any_instance.stub(:save).and_return(false)
-          put :update, {id: score.to_param, score: { "user_id" => "invalid value" }}, valid_session
+          put :update,  { id: score.to_param, 
+                          score: { "user_id" => "invalid value" }
+                        }, valid_session
           response.should render_template("edit")
         end
       end

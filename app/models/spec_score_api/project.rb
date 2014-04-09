@@ -12,9 +12,7 @@ module SpecScoreApi
     private 
 
     def check_token
-      if token.nil? || token.length < 10
-        supply_token
-      end
+      supply_token if token.nil? || token.length < 10
     end
 
     def supply_token

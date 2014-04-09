@@ -131,7 +131,9 @@ module SpecScoreApi
           user = FactoryGirl.create(:user) 
           # Trigger the behavior that occurs when invalid params are submitted
           User.any_instance.stub(:save).and_return(false)
-          put :update, {id: user.to_param, user: { "email" => "invalid value" }}, valid_session
+          put :update,  { id: user.to_param, 
+                          user: { "email" => "invalid value" }
+                        }, valid_session
           assigns(:user).should eq(user)
         end
 
@@ -139,7 +141,9 @@ module SpecScoreApi
           user = FactoryGirl.create(:user) 
           # Trigger the behavior that occurs when invalid params are submitted
           User.any_instance.stub(:save).and_return(false)
-          put :update, {id: user.to_param, user: { "email" => "invalid value" }}, valid_session
+          put :update,  { id: user.to_param, 
+                          user: { "email" => "invalid value" }
+                        }, valid_session
           response.should render_template("edit")
         end
       end

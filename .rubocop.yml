@@ -1,1 +1,11 @@
 inherit_from: rubocop-todo.yml
+
+# Common configuration.
+AllCops:
+  # Include gemspec and Rakefile
+  Include:
+    - '**/*.gemspec'
+    - '**/Rakefile'
+  Exclude:
+    - 'spec/test_app/**'
+    - 'db/migrate/**'

@@ -55,13 +55,14 @@ module SpecScoreApi
     private
     
       # Use callbacks to share common setup or constraints between actions.
-      def set_score
-        @score = Score.find(params[:id])
-      end
+    def set_score
+      @score = Score.find(params[:id])
+    end
 
       # Only allow a trusted parameter "white list" through.
-      def score_params
-        params.require(:score).permit(:user_id, :project_id, :duration, :specs, :succeeded, :failed, :pending)
-      end
+    def score_params
+      params.require(:score).permit(:user_id, :project_id, :duration, 
+                                    :specs, :succeeded, :failed, :pending)
+    end
   end
 end

@@ -17,14 +17,22 @@ describe "projects/edit" do
     render template: 'spec_score_api/projects/edit'
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", spec_score_api.project_path(@project), "post" do
-      assert_select "input#project_owner_id[name=?]", "project[owner_id]"
-      assert_select "input#project_count_specs[name=?]", "project[count_specs]"
-      assert_select "input#project_count_succeeded[name=?]", "project[count_succeeded]"
-      assert_select "input#project_count_failures[name=?]", "project[count_failures]"
-      assert_select "input#project_count_pending[name=?]", "project[count_pending]"
-      assert_select "input#project_duration[name=?]", "project[duration]"
-      assert_select "input#project_count_of_scores[name=?]", "project[count_of_scores]"
+    assert_select "form[action=?][method=?]", 
+                  spec_score_api.project_path(@project), "post" do
+      assert_select "input#project_owner_id[name=?]", 
+                    "project[owner_id]"
+      assert_select "input#project_count_specs[name=?]", 
+                    "project[count_specs]"
+      assert_select "input#project_count_succeeded[name=?]", 
+                    "project[count_succeeded]"
+      assert_select "input#project_count_failures[name=?]", 
+                    "project[count_failures]"
+      assert_select "input#project_count_pending[name=?]", 
+                    "project[count_pending]"
+      assert_select "input#project_duration[name=?]", 
+                    "project[duration]"
+      assert_select "input#project_count_of_scores[name=?]", 
+                    "project[count_of_scores]"
     end
   end
 end

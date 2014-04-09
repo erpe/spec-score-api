@@ -29,7 +29,9 @@ module SpecScoreApi
     # This should return the minimal set of attributes required to create a valid
     # Project. As you add validations to Project, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) { FactoryGirl.attributes_for(:project).merge(owner_id: @user.id )}
+    let(:valid_attributes) do 
+      FactoryGirl.attributes_for(:project).merge(owner_id: @user.id )
+    end
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in
@@ -113,7 +115,9 @@ module SpecScoreApi
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
           Project.any_instance.should_receive(:update).with( "owner_id" => "1" )
-          put :update, {id: project.to_param, project: { "owner_id" => "1" }}, valid_session
+          put :update,  { id: project.to_param, 
+                          project: { "owner_id" => "1" }
+                        }, valid_session
         end
 
         it "assigns the requested project as @project" do
@@ -134,7 +138,9 @@ module SpecScoreApi
           project = Project.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           Project.any_instance.stub(:save).and_return(false)
-          put :update, {id: project.to_param, project: { "owner_id" => "invalid value" }}, valid_session
+          put :update, { id: project.to_param, 
+                         project: { "owner_id" => "invalid value" }
+                        }, valid_session
           assigns(:project).should eq(project)
         end
 
@@ -142,7 +148,9 @@ module SpecScoreApi
           project = Project.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           Project.any_instance.stub(:save).and_return(false)
-          put :update, {id: project.to_param, project: { "owner_id" => "invalid value" }}, valid_session
+          put :update, {id: project.to_param, 
+                        project: { "owner_id" => "invalid value" }
+                       }, valid_session
           response.should render_template("edit")
         end
       end
