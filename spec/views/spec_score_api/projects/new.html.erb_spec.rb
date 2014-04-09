@@ -3,13 +3,13 @@ require 'spec_helper'
 describe "projects/new" do
   before(:each) do
     assign(:project, stub_model(SpecScoreApi::Project,
-      :owner_id => 1,
-      :count_specs => 1,
-      :count_succeeded => 1,
-      :count_failures => 1,
-      :count_pending => 1,
-      :duration => 1.5,
-      :count_of_scores => 1
+                                owner_id: 1,
+                                count_specs: 1,
+                                count_succeeded: 1,
+                                count_failures: 1,
+                                count_pending: 1,
+                                duration: 1.5,
+                                count_of_scores: 1
     ).as_new_record)
   end
 

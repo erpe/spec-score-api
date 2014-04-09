@@ -15,11 +15,11 @@ module SpecScoreApi
       end
 
       it "routes to #show" do
-        get("/projects/1").should route_to("spec_score_api/projects#show", :id => "1")
+        get("/projects/1").should route_to("spec_score_api/projects#show", id: "1")
       end
 
       it "routes to #edit" do
-        get("/projects/1/edit").should route_to("spec_score_api/projects#edit", :id => "1")
+        get("/projects/1/edit").should route_to("spec_score_api/projects#edit", id: "1")
       end
 
       it "routes to #create" do
@@ -27,11 +27,11 @@ module SpecScoreApi
       end
 
       it "routes to #update" do
-        put("/projects/1").should route_to("spec_score_api/projects#update", :id => "1")
+        put("/projects/1").should route_to("spec_score_api/projects#update", id: "1")
       end
 
       it "routes to #destroy" do
-        delete("/projects/1").should route_to("spec_score_api/projects#destroy", :id => "1")
+        delete("/projects/1").should route_to("spec_score_api/projects#destroy", id: "1")
       end
 
     end

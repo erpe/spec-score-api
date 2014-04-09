@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :user, :class => 'SpecScoreApi::User' do
+  factory :user, class: 'SpecScoreApi::User' do
     email { Faker::Internet.email }
     nick  { Faker::Name.first_name }
     count_specs 0

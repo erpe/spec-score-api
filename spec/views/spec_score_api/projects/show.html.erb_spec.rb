@@ -3,13 +3,13 @@ require 'spec_helper'
 describe "projects/show" do
   before(:each) do
     @project = assign(:project, stub_model(SpecScoreApi::Project,
-      :owner_id => 1,
-      :count_specs => 2,
-      :count_succeeded => 3,
-      :count_failures => 4,
-      :count_pending => 5,
-      :duration => 1.5,
-      :count_of_scores => 6
+                                           owner_id: 1,
+                                           count_specs: 2,
+                                           count_succeeded: 3,
+                                           count_failures: 4,
+                                           count_pending: 5,
+                                           duration: 1.5,
+                                           count_of_scores: 6
     ))
   end
 

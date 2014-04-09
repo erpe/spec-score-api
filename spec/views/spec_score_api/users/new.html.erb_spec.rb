@@ -3,14 +3,14 @@ require 'spec_helper'
 describe "users/new" do
   before(:each) do
     assign(:user, stub_model(SpecScoreApi::User,
-      :email => "MyString",
-      :nick => "MyString",
-      :count_specs => "",
-      :count_succeeded => "",
-      :count_failures_int => "MyString",
-      :overall_duration => 1.5,
-      :count_scores => "",
-      :api_token => "MyString"
+                             email: "MyString",
+                             nick: "MyString",
+                             count_specs: "",
+                             count_succeeded: "",
+                             count_failures_int: "MyString",
+                             overall_duration: 1.5,
+                             count_scores: "",
+                             api_token: "MyString"
     ).as_new_record)
   end
 

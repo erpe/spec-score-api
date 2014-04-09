@@ -3,13 +3,13 @@ require 'spec_helper'
 describe "scores/show" do
   before(:each) do
     @score = assign(:score, stub_model(SpecScoreApi::Score,
-      :user_id => 1,
-      :project_id => 2,
-      :duration => 1.5,
-      :specs => 3,
-      :succeeded => 4,
-      :failed => 5,
-      :pending => 6
+                                       user_id: 1,
+                                       project_id: 2,
+                                       duration: 1.5,
+                                       specs: 3,
+                                       succeeded: 4,
+                                       failed: 5,
+                                       pending: 6
     ))
   end
 

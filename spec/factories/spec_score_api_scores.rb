@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :score, :class => 'SpecScoreApi::Score' do
+  factory :score, class: 'SpecScoreApi::Score' do
     user_id 1
     project_id 1
     duration 1.5

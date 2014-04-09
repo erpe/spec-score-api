@@ -42,7 +42,7 @@ module SpecScoreApi
     describe "GET show" do
       it "assigns the requested score as @score" do
         score = Score.create! valid_attributes
-        get :show, {:id => score.to_param}, valid_session
+        get :show, {id: score.to_param}, valid_session
         assigns(:score).should eq(score)
       end
     end
@@ -57,7 +57,7 @@ module SpecScoreApi
     describe "GET edit" do
       it "assigns the requested score as @score" do
         score = Score.create! valid_attributes
-        get :edit, {:id => score.to_param}, valid_session
+        get :edit, {id: score.to_param}, valid_session
         assigns(:score).should eq(score)
       end
     end
@@ -65,19 +65,19 @@ module SpecScoreApi
     describe "POST create" do
       describe "with valid params" do
         it "creates a new Score" do
-          expect {
-            post :create, {:score => valid_attributes}, valid_session
-          }.to change(Score, :count).by(1)
+          expect do
+            post :create, {score: valid_attributes}, valid_session
+          end.to change(Score, :count).by(1)
         end
 
         it "assigns a newly created score as @score" do
-          post :create, {:score => valid_attributes}, valid_session
+          post :create, {score: valid_attributes}, valid_session
           assigns(:score).should be_a(Score)
           assigns(:score).should be_persisted
         end
 
         it "redirects to the created score" do
-          post :create, {:score => valid_attributes}, valid_session
+          post :create, {score: valid_attributes}, valid_session
           response.should redirect_to(Score.last)
         end
       end
@@ -86,14 +86,14 @@ module SpecScoreApi
         it "assigns a newly created but unsaved score as @score" do
           # Trigger the behavior that occurs when invalid params are submitted
           Score.any_instance.stub(:save).and_return(false)
-          post :create, {:score => { "user_id" => "invalid value" }}, valid_session
+          post :create, {score: { "user_id" => "invalid value" }}, valid_session
           assigns(:score).should be_a_new(Score)
         end
 
         it "re-renders the 'new' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           Score.any_instance.stub(:save).and_return(false)
-          post :create, {:score => { "user_id" => "invalid value" }}, valid_session
+          post :create, {score: { "user_id" => "invalid value" }}, valid_session
           response.should render_template("new")
         end
       end
@@ -107,19 +107,19 @@ module SpecScoreApi
           # specifies that the Score created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Score.any_instance.should_receive(:update).with({ "user_id" => "1" })
-          put :update, {:id => score.to_param, :score => { "user_id" => "1" }}, valid_session
+          Score.any_instance.should_receive(:update).with( "user_id" => "1" )
+          put :update, {id: score.to_param, score: { "user_id" => "1" }}, valid_session
         end
 
         it "assigns the requested score as @score" do
           score = Score.create! valid_attributes
-          put :update, {:id => score.to_param, :score => valid_attributes}, valid_session
+          put :update, {id: score.to_param, score: valid_attributes}, valid_session
           assigns(:score).should eq(score)
         end
 
         it "redirects to the score" do
           score = Score.create! valid_attributes
-          put :update, {:id => score.to_param, :score => valid_attributes}, valid_session
+          put :update, {id: score.to_param, score: valid_attributes}, valid_session
           response.should redirect_to(score)
         end
       end
@@ -129,7 +129,7 @@ module SpecScoreApi
           score = Score.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           Score.any_instance.stub(:save).and_return(false)
-          put :update, {:id => score.to_param, :score => { "user_id" => "invalid value" }}, valid_session
+          put :update, {id: score.to_param, score: { "user_id" => "invalid value" }}, valid_session
           assigns(:score).should eq(score)
         end
 
@@ -137,7 +137,7 @@ module SpecScoreApi
           score = Score.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           Score.any_instance.stub(:save).and_return(false)
-          put :update, {:id => score.to_param, :score => { "user_id" => "invalid value" }}, valid_session
+          put :update, {id: score.to_param, score: { "user_id" => "invalid value" }}, valid_session
           response.should render_template("edit")
         end
       end
@@ -146,14 +146,14 @@ module SpecScoreApi
     describe "DELETE destroy" do
       it "destroys the requested score" do
         score = Score.create! valid_attributes
-        expect {
-          delete :destroy, {:id => score.to_param}, valid_session
-        }.to change(Score, :count).by(-1)
+        expect do
+          delete :destroy, {id: score.to_param}, valid_session
+        end.to change(Score, :count).by(-1)
       end
 
       it "redirects to the scores list" do
         score = Score.create! valid_attributes
-        delete :destroy, {:id => score.to_param}, valid_session
+        delete :destroy, {id: score.to_param}, valid_session
         response.should redirect_to(scores_url)
       end
     end

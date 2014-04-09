@@ -3,14 +3,14 @@ require 'spec_helper'
 describe "users/show" do
   before(:each) do
     @user = assign(:user, stub_model(SpecScoreApi::User,
-      :email => "Email",
-      :nick => "Nick",
-      :count_specs => "",
-      :count_succeeded => "",
-      :count_failures_int => "Count Failures Int",
-      :overall_duration => 1.5,
-      :count_scores => "",
-      :api_token => "Api Token"
+                                     email: "Email",
+                                     nick: "Nick",
+                                     count_specs: "",
+                                     count_succeeded: "",
+                                     count_failures_int: "Count Failures Int",
+                                     overall_duration: 1.5,
+                                     count_scores: "",
+                                     api_token: "Api Token"
     ))
   end
 

@@ -2,7 +2,7 @@
 require 'digest/md5'
 
 FactoryGirl.define do
-  factory :project, :class => 'SpecScoreApi::Project' do
+  factory :project, class: 'SpecScoreApi::Project' do
     association :owner, factory: :user
     name { Faker::Lorem.sentence(3) }
     count_specs 1
