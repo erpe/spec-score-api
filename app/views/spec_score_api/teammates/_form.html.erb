@@ -1,4 +1,5 @@
-<%= form_for(@teammate) do |f| %>
+<% url = @teammate.new_record? ? spec_score_api.project_teammates_url(@project) : spec_score_api.project_teammate_path(@project, @teammate) %>
+<%= form_for(@teammate, url: url) do |f| %>
   <% if @teammate.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@teammate.errors.count, "error") %> prohibited this teammate from being saved:</h2>
