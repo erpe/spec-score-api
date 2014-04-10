@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408191149) do
+ActiveRecord::Schema.define(version: 20140410193422) do
 
   create_table "scores", force: true do |t|
     t.integer  "user_id"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 20140408191149) do
   add_index "spec_score_api_projects", ["name"], name: "index_spec_score_api_projects_on_name"
   add_index "spec_score_api_projects", ["owner_id"], name: "index_spec_score_api_projects_on_owner_id"
   add_index "spec_score_api_projects", ["token"], name: "index_spec_score_api_projects_on_token"
+
+  create_table "spec_score_api_teammates", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spec_score_api_teammates", ["project_id"], name: "index_spec_score_api_teammates_on_project_id"
+  add_index "spec_score_api_teammates", ["user_id"], name: "index_spec_score_api_teammates_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"

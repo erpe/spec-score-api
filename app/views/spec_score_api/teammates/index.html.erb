@@ -1,0 +1,29 @@
+<h1>Listing teammates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Project</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teammates.each do |teammate| %>
+      <tr>
+        <td><%= teammate.user_id %></td>
+        <td><%= teammate.project_id %></td>
+        <td><%= link_to 'Show', spec_score_api.project_teammate_path(teammate.project_id, teammate) %></td>
+        <td><%= link_to 'Edit', spec_score_api.edit_project_teammate_path(teammate.project_id, teammate) %></td>
+        <td><%= link_to 'Destroy', spec_score_api.project_teammate_path(teammate.project_id, teammate), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teammate', spec_score_api.new_project_teammate_path(@teammates.first.project_id) %>

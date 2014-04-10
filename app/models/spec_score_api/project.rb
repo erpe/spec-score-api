@@ -9,6 +9,9 @@ module SpecScoreApi
 
     before_validation :check_token, on: :create
 
+    has_many :teammates
+    has_many :users, through: :teammates 
+
     private 
 
     def check_token

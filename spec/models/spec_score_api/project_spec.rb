@@ -23,5 +23,23 @@ module SpecScoreApi
     it 'is invalid without name' do
       FactoryGirl.build(:project, name: nil).should_not be_valid
     end
+
+    it 'responds to .teammates' do
+      FactoryGirl.build(:project).should respond_to(:teammates)
+    end
+
+    it 'responds to .users' do
+      FactoryGirl.build(:project).should respond_to(:users)
+    end
+
+    it 'returns 4 users' do
+      users = FactoryGirl.create_list(:user,  4)
+      project = FactoryGirl.create(:project)
+      users.each do |u|
+        FactoryGirl.create(:teammate, user: u, project: project)
+      end
+      project.reload
+      project.users.count.should eq(4)
+    end
   end
 end
