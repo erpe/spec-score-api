@@ -1,6 +1,6 @@
 module SpecScoreApi
   class User < ActiveRecord::Base
-    self.table_name = 'users'
+    self.table_name = 'sc_users'
     
     has_many :scores
     has_many :engagements, class_name: 'Teammate'

@@ -9,7 +9,7 @@ FactoryGirl.define do
     count_succeeded 1
     count_failures 1
     count_pending 1
-    duration 1.5
+    overall_duration 1.5
     count_of_scores 1
     token { Digest::MD5.hexdigest("test")  }
   end

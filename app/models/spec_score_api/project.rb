@@ -2,6 +2,8 @@ require 'digest/md5'
 
 module SpecScoreApi
   class Project < ActiveRecord::Base
+    self.table_name = 'sc_projects'
+
     belongs_to :owner, class_name: 'User'
     validates :owner, presence: true
     validates :token, presence: true

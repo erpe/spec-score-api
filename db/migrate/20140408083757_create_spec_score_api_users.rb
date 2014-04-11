@@ -1,6 +1,6 @@
 class CreateSpecScoreApiUsers < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :sc_users do |t|
       t.string :email
       t.string :nick
       t.integer :count_specs, default: 0
@@ -12,7 +12,7 @@ class CreateSpecScoreApiUsers < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :users, :email
-    add_index :users, :api_token
+    add_index :sc_users, :email
+    add_index :sc_users, :api_token
   end
 end
