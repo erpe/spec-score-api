@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe "teammates/index" do
-  before(:each) do
+  before(:each) do  
+    assign(:project, stub_model(SpecScoreApi::Project, id: 2)) 
     assign(:teammates, [
       stub_model(SpecScoreApi::Teammate,
                  user_id: 1,

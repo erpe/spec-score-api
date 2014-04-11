@@ -10,5 +10,5 @@
   <%= @teammate.project_id %>
 </p>
 
-<%= link_to 'Edit', edit_teammate_path(@teammate) %> |
-<%= link_to 'Back', teammates_path %>
+<%= link_to 'Edit', spec_score_api.edit_project_teammate_path(@project, @teammate) %> |
+<%= link_to 'Back', spec_score_api.project_teammates_path(@project) %>
