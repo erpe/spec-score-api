@@ -44,7 +44,7 @@ module SpecScoreApi
     describe "GET show" do
       it "assigns the requested user as @user" do
         user = FactoryGirl.create(:user) 
-        get :show, {id: user.to_param}, valid_session
+        get :show, { id: user.to_param }, valid_session
         assigns(:user).should eq(user)
       end
     end
@@ -59,7 +59,7 @@ module SpecScoreApi
     describe "GET edit" do
       it "assigns the requested user as @user" do
         user = FactoryGirl.create(:user) 
-        get :edit, {id: user.to_param}, valid_session
+        get :edit, { id: user.to_param }, valid_session
         assigns(:user).should eq(user)
       end
     end
@@ -68,18 +68,18 @@ module SpecScoreApi
       describe "with valid params" do
         it "creates a new User" do
           expect do
-            post :create, {user: valid_attributes}, valid_session
+            post :create, { user: valid_attributes }, valid_session
           end.to change(User, :count).by(1)
         end
 
         it "assigns a newly created user as @user" do
-          post :create, {user: valid_attributes}, valid_session
+          post :create, { user: valid_attributes }, valid_session
           assigns(:user).should be_a(User)
           assigns(:user).should be_persisted
         end
 
         it "redirects to the created user" do
-          post :create, {user: valid_attributes}, valid_session
+          post :create, { user: valid_attributes }, valid_session
           response.should redirect_to(User.last)
         end
       end
@@ -88,14 +88,16 @@ module SpecScoreApi
         it "assigns a newly created but unsaved user as @user" do
           # Trigger the behavior that occurs when invalid params are submitted
           User.any_instance.stub(:save).and_return(false)
-          post :create, {user: { "email" => "invalid value" }}, valid_session
+          post :create, { user: { "email" => "invalid value" } }, 
+               valid_session
           assigns(:user).should be_a_new(User)
         end
 
         it "re-renders the 'new' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           User.any_instance.stub(:save).and_return(false)
-          post :create, {user: { "email" => "invalid value" }}, valid_session
+          post :create, { user: { "email" => "invalid value" } }, 
+               valid_session
           response.should render_template("new")
         end
       end
@@ -109,19 +111,20 @@ module SpecScoreApi
           # specifies that the User created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          User.any_instance.should_receive(:update).with( "email" => "MyString" )
-          put :update, {id: user.to_param, user: { "email" => "MyString" }}, valid_session
+          User.any_instance.should_receive(:update).with("email" => "MyString")
+          put :update, { id: user.to_param, 
+                         user: { "email" => "MyString" } }, valid_session
         end
 
         it "assigns the requested user as @user" do
           user = FactoryGirl.create(:user) 
-          put :update, {id: user.to_param, user: valid_attributes}, valid_session
+          put :update, { id: user.to_param, user: valid_attributes }, valid_session
           assigns(:user).should eq(user)
         end
 
         it "redirects to the user" do
           user = FactoryGirl.create(:user) 
-          put :update, {id: user.to_param, user: valid_attributes}, valid_session
+          put :update, { id: user.to_param, user: valid_attributes }, valid_session
           response.should redirect_to(user)
         end
       end
@@ -153,13 +156,13 @@ module SpecScoreApi
       it "destroys the requested user" do
         user = FactoryGirl.create(:user) 
         expect do
-          delete :destroy, {id: user.to_param}, valid_session
+          delete :destroy, { id: user.to_param }, valid_session
         end.to change(User, :count).by(-1)
       end
 
       it "redirects to the users list" do
         user = FactoryGirl.create(:user) 
-        delete :destroy, {id: user.to_param}, valid_session
+        delete :destroy, { id: user.to_param }, valid_session
         response.should redirect_to(users_url)
       end
     end

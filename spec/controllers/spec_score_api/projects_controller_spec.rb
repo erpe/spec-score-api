@@ -30,7 +30,7 @@ module SpecScoreApi
     # Project. As you add validations to Project, be sure to
     # adjust the attributes here as well.
     let(:valid_attributes) do 
-      FactoryGirl.attributes_for(:project).merge(owner_id: @user.id )
+      FactoryGirl.attributes_for(:project).merge(owner_id: @user.id)
     end
 
     # This should return the minimal set of values that should be in the session
@@ -49,7 +49,7 @@ module SpecScoreApi
     describe "GET show" do
       it "assigns the requested project as @project" do
         project = Project.create! valid_attributes
-        get :show, {id: project.to_param}, valid_session
+        get :show, { id: project.to_param }, valid_session
         assigns(:project).should eq(project)
       end
     end
@@ -64,7 +64,7 @@ module SpecScoreApi
     describe "GET edit" do
       it "assigns the requested project as @project" do
         project = Project.create! valid_attributes
-        get :edit, {id: project.to_param}, valid_session
+        get :edit, { id: project.to_param }, valid_session
         assigns(:project).should eq(project)
       end
     end
@@ -73,18 +73,18 @@ module SpecScoreApi
       describe "with valid params" do
         it "creates a new Project" do
           expect do
-            post :create, {project: valid_attributes}, valid_session
+            post :create, { project: valid_attributes }, valid_session
           end.to change(Project, :count).by(1)
         end
 
         it "assigns a newly created project as @project" do
-          post :create, {project: valid_attributes}, valid_session
+          post :create, { project: valid_attributes }, valid_session
           assigns(:project).should be_a(Project)
           assigns(:project).should be_persisted
         end
 
         it "redirects to the created project" do
-          post :create, {project: valid_attributes}, valid_session
+          post :create, { project: valid_attributes }, valid_session
           response.should redirect_to(Project.last)
         end
       end
@@ -93,14 +93,14 @@ module SpecScoreApi
         it "assigns a newly created but unsaved project as @project" do
           # Trigger the behavior that occurs when invalid params are submitted
           Project.any_instance.stub(:save).and_return(false)
-          post :create, {project: { "owner_id" => "invalid value" }}, valid_session
+          post :create, { project: { "owner_id" => "invalid value" } }, valid_session
           assigns(:project).should be_a_new(Project)
         end
 
         it "re-renders the 'new' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           Project.any_instance.stub(:save).and_return(false)
-          post :create, {project: { "owner_id" => "invalid value" }}, valid_session
+          post :create, { project: { "owner_id" => "invalid value" } }, valid_session
           response.should render_template("new")
         end
       end
@@ -114,7 +114,7 @@ module SpecScoreApi
           # specifies that the Project created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Project.any_instance.should_receive(:update).with( "owner_id" => "1" )
+          Project.any_instance.should_receive(:update).with("owner_id" => "1")
           put :update,  { id: project.to_param, 
                           project: { "owner_id" => "1" }
                         }, valid_session
@@ -122,13 +122,13 @@ module SpecScoreApi
 
         it "assigns the requested project as @project" do
           project = Project.create! valid_attributes
-          put :update, {id: project.to_param, project: valid_attributes}, valid_session
+          put :update, { id: project.to_param, project: valid_attributes }, valid_session
           assigns(:project).should eq(project)
         end
 
         it "redirects to the project" do
           project = Project.create! valid_attributes
-          put :update, {id: project.to_param, project: valid_attributes}, valid_session
+          put :update, { id: project.to_param, project: valid_attributes }, valid_session
           response.should redirect_to(project)
         end
       end
@@ -148,8 +148,8 @@ module SpecScoreApi
           project = Project.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
           Project.any_instance.stub(:save).and_return(false)
-          put :update, {id: project.to_param, 
-                        project: { "owner_id" => "invalid value" }
+          put :update, { id: project.to_param, 
+                         project: { "owner_id" => "invalid value" }
                        }, valid_session
           response.should render_template("edit")
         end
@@ -160,13 +160,13 @@ module SpecScoreApi
       it "destroys the requested project" do
         project = Project.create! valid_attributes
         expect do
-          delete :destroy, {id: project.to_param}, valid_session
+          delete :destroy, { id: project.to_param }, valid_session
         end.to change(Project, :count).by(-1)
       end
 
       it "redirects to the projects list" do
         project = Project.create! valid_attributes
-        delete :destroy, {id: project.to_param}, valid_session
+        delete :destroy, { id: project.to_param }, valid_session
         response.should redirect_to(projects_url)
       end
     end

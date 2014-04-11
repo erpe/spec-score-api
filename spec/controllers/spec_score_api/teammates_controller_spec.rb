@@ -24,7 +24,9 @@ module SpecScoreApi
     # This should return the minimal set of attributes required to create a valid
     # Teammate. As you add validations to Teammate, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) { FactoryGirl.attributes_for(:teammate ).merge(project: @project) }
+    let(:valid_attributes) do
+      FactoryGirl.attributes_for(:teammate).merge(project: @project) 
+    end
 
     before do
       @project = FactoryGirl.create(:project)
@@ -47,14 +49,14 @@ module SpecScoreApi
       it "assigns the requested teammate as @teammate" do
         teammate = Teammate.create! valid_attributes
         get :show, { project_id: @project.to_param, 
-                     id: teammate.to_param}, valid_session
+                     id: teammate.to_param }, valid_session
         assigns(:teammate).should eq(teammate)
       end
     end
 
     describe "GET new" do
       it "assigns a new teammate as @teammate" do
-        get :new, {project_id: @project.to_param }, valid_session
+        get :new, { project_id: @project.to_param }, valid_session
         assigns(:teammate).should be_a_new(Teammate)
       end
     end
@@ -62,7 +64,7 @@ module SpecScoreApi
     describe "GET edit" do
       it "assigns the requested teammate as @teammate" do
         teammate = Teammate.create! valid_attributes
-        get :edit, { project_id: @project.to_param, id: teammate.to_param}, valid_session
+        get :edit, { project_id: @project.to_param, id: teammate.to_param }, valid_session
         assigns(:teammate).should eq(teammate)
       end
     end
@@ -72,20 +74,20 @@ module SpecScoreApi
         it "creates a new Teammate" do
           expect do
             post :create, { project_id: @project.to_param, 
-                            teammate: valid_attributes}, valid_session
+                            teammate: valid_attributes }, valid_session
           end.to change(Teammate, :count).by(1)
         end
 
         it "assigns a newly created teammate as @teammate" do
           post :create, { project_id: @project.to_param, 
-                          teammate: valid_attributes}, valid_session
+                          teammate: valid_attributes }, valid_session
           assigns(:teammate).should be_a(Teammate)
           assigns(:teammate).should be_persisted
         end
 
         it "redirects to the created teammate" do
           post :create, { project_id: @project.to_param, 
-                          teammate: valid_attributes}, valid_session
+                          teammate: valid_attributes }, valid_session
           response.should redirect_to(project_teammate_url(@project, Teammate.last))
         end
       end
@@ -119,7 +121,7 @@ module SpecScoreApi
           # specifies that the Teammate created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Teammate.any_instance.should_receive(:update).with( "user_id" => "1" )
+          Teammate.any_instance.should_receive(:update).with("user_id" => "1")
           put :update,  { project_id: @project.to_param, 
                           id: teammate.to_param, 
                           teammate: { "user_id" => "1" }
@@ -130,7 +132,7 @@ module SpecScoreApi
           teammate = Teammate.create! valid_attributes
           put :update, { project_id: @project.to_param, 
                          id: teammate.to_param, 
-                         teammate: valid_attributes}, valid_session
+                         teammate: valid_attributes }, valid_session
           assigns(:teammate).should eq(teammate)
         end
 
@@ -138,7 +140,7 @@ module SpecScoreApi
           teammate = Teammate.create! valid_attributes
           put :update, { project_id: @project.to_param, 
                          id: teammate.to_param, 
-                         teammate: valid_attributes}, valid_session
+                         teammate: valid_attributes }, valid_session
           response.should redirect_to(project_teammate_path(@project, teammate))
         end
       end
@@ -150,7 +152,7 @@ module SpecScoreApi
           Teammate.any_instance.stub(:save).and_return(false)
           put :update, { project_id: @project.to_param, 
                          id: teammate.to_param, 
-                         teammate: { "user_id" => "invalid value" }}, valid_session
+                         teammate: { "user_id" => "invalid value" } }, valid_session
           assigns(:teammate).should eq(teammate)
         end
 
@@ -170,16 +172,16 @@ module SpecScoreApi
     describe "DELETE destroy" do
       it "destroys the requested teammate" do
         teammate = Teammate.create! valid_attributes
-        expect {
+        expect do
           delete :destroy, { project_id: @project.to_param,
-                             id: teammate.to_param}, valid_session
-        }.to change(Teammate, :count).by(-1)
+                             id: teammate.to_param }, valid_session
+        end.to change(Teammate, :count).by(-1)
       end
 
       it "redirects to the teammates list" do
         teammate = Teammate.create! valid_attributes
         delete :destroy, { project_id: @project.to_param, 
-                           id: teammate.to_param}, valid_session
+                           id: teammate.to_param }, valid_session
         response.should redirect_to(project_teammates_url(@project))
       end
     end

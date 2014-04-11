@@ -28,7 +28,8 @@ module SpecScoreApi
       @teammate = Teammate.new(teammate_params)
 
       if @teammate.save
-        redirect_to project_teammate_url(@project, @teammate), notice: 'Teammate was successfully created.'
+        redirect_to project_teammate_url(@project, @teammate), 
+                    notice: 'Teammate was successfully created.'
       else
         render action: 'new'
       end
@@ -37,7 +38,8 @@ module SpecScoreApi
     # PATCH/PUT /teammates/1
     def update
       if @teammate.update(teammate_params)
-        redirect_to project_teammate_url(@project, @teammate), notice: 'Teammate was successfully updated.'
+        redirect_to project_teammate_url(@project, @teammate), 
+                    notice: 'Teammate was successfully updated.'
       else
         render action: 'edit'
       end
@@ -46,11 +48,13 @@ module SpecScoreApi
     # DELETE /teammates/1
     def destroy
       @teammate.destroy
-      redirect_to project_teammates_url(@project), notice: 'Teammate was successfully destroyed.'
+      redirect_to project_teammates_url(@project), 
+                  notice: 'Teammate was successfully destroyed.'
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
+    
+    # Use callbacks to share common setup or constraints between actions.
     def set_teammate
       @teammate = Teammate.find(params[:id])
     end
