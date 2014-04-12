@@ -1,11 +1,12 @@
 language: ruby
-cache: bundler
+#cache: bundler
 
 gemfile:
   - gemfiles/rails4.gemfile
 
 before_script:
   - cp ./spec/test_app/config/database.yml.travis ./spec/test_app/config/database.yml
+  - rake app:db:migrate
 
 rvm:
   - '2.0.0'
