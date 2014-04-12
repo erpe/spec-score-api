@@ -11,8 +11,9 @@ module SpecScoreApi
 
     before_validation :check_token, on: :create
 
-    has_many :teammates
+    has_many :teammates, dependent: :destroy
     has_many :users, through: :teammates 
+    has_many :scores, dependent: :destroy
 
     private 
 

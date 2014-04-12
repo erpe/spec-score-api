@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :score, class: 'SpecScoreApi::Score' do
-    user_id 1
-    project_id 1
+    user
+    project
     duration 1.5
     specs 1
     succeeded 1

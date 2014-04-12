@@ -8,7 +8,7 @@ describe "projects/new" do
                                 count_succeeded: 1,
                                 count_failures: 1,
                                 count_pending: 1,
-                                duration: 1.5,
+                                overall_duration: 1.5,
                                 count_of_scores: 1
     ).as_new_record)
   end
@@ -23,7 +23,7 @@ describe "projects/new" do
       assert_select "input#project_count_succeeded[name=?]", "project[count_succeeded]"
       assert_select "input#project_count_failures[name=?]", "project[count_failures]"
       assert_select "input#project_count_pending[name=?]", "project[count_pending]"
-      assert_select "input#project_duration[name=?]", "project[duration]"
+      assert_select "input#project_overall_duration[name=?]", "project[overall_duration]"
       assert_select "input#project_count_of_scores[name=?]", "project[count_of_scores]"
     end
   end

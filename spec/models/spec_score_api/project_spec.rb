@@ -41,5 +41,9 @@ module SpecScoreApi
       project.reload
       project.users.count.should eq(4)
     end
+
+    it 'responds to scores' do
+      FactoryGirl.build(:project).should respond_to(:scores)
+    end
   end
 end

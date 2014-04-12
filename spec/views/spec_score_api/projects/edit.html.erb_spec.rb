@@ -29,8 +29,8 @@ describe "projects/edit" do
                     "project[count_failures]"
       assert_select "input#project_count_pending[name=?]", 
                     "project[count_pending]"
-      assert_select "input#project_duration[name=?]", 
-                    "project[duration]"
+      assert_select "input#project_overall_duration[name=?]", 
+                    "project[overall_duration]"
       assert_select "input#project_count_of_scores[name=?]", 
                     "project[count_of_scores]"
     end
