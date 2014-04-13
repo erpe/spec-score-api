@@ -16,6 +16,7 @@ describe 'Projects' do
   describe 'GET /projects/1' do
     before do
       @project = FactoryGirl.create(:project, overall_duration: 10000.587)
+      SpecScoreApi::Project.reset_counters(@project.id, :scores)
     end
     
     it 'returns project name' do
@@ -29,6 +30,29 @@ describe 'Projects' do
       expect(response).to be_success
       expect(json['overall_duration']).to eq(@project.overall_duration)
     end
+
+    it 'returns count_of_scores' do
+      get spec_score_api.project_path(@project, format: :json)
+      expect(response).to be_success
+      expect(json['count_of_scores']).to eq(@project.scores.count)
+    end
     
+    it 'returns count of failures' do
+      get spec_score_api.project_path(@project, format: :json)
+      expect(response).to be_success
+      expect(json['count_failures']).to eq(@project.scores.count)
+    end
+    
+    it 'returns count of successes' do
+      get spec_score_api.project_path(@project, format: :json)
+      expect(response).to be_success
+      expect(json['count_succeeded']).to eq(@project.scores.count)
+    end
+    
+    it 'returns count of pending' do
+      get spec_score_api.project_path(@project, format: :json)
+      expect(response).to be_success
+      expect(json['count_pending']).to eq(@project.scores.count)
+    end
   end
 end

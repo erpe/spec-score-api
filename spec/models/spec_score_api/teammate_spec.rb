@@ -21,5 +21,13 @@ module SpecScoreApi
     it 'returns a project' do
       FactoryGirl.create(:teammate).project.should be_a(Project)
     end
+
+    it 'responds to nick' do
+      FactoryGirl.create(:teammate).should respond_to(:nick)
+    end
+    
+    it 'responds to email' do
+      FactoryGirl.create(:teammate).should respond_to(:email)
+    end
   end
 end

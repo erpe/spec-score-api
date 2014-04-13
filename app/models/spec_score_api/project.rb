@@ -4,16 +4,16 @@ module SpecScoreApi
   class Project < ActiveRecord::Base
     self.table_name = 'sc_projects'
 
-    belongs_to :owner, class_name: 'User'
-    validates :owner, presence: true
-    validates :token, presence: true
-    validates :name, presence: true, uniqueness: true
+    belongs_to :owner,  class_name: 'User'
+    validates :owner,   presence: true
+    validates :token,   presence: true
+    validates :name,    presence: true, uniqueness: true
 
     before_validation :check_token, on: :create
 
-    has_many :teammates, dependent: :destroy
-    has_many :users, through: :teammates 
-    has_many :scores, dependent: :destroy
+    has_many :teammates,  dependent: :destroy
+    has_many :users,      through: :teammates 
+    has_many :scores,     dependent: :destroy
 
     private 
 

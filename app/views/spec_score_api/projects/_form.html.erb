@@ -12,9 +12,15 @@
     </div>
   <% end %>
 
+  <div class='field'>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, required: true %>
+  </div>
+
   <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.number_field :owner_id %>
+    <%= f.label :owner_id %><br />
+    <%= f.select :owner_id, SpecScoreApi::User.all.map {|u| [u.email, u.id]},
+                 { include_blank: true, prompt: 'select owner'} %>
   </div>
   <div class="field">
     <%= f.label :count_specs %><br>

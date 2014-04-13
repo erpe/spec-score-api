@@ -8,7 +8,7 @@ describe "projects/edit" do
                                            count_succeeded: 1,
                                            count_failures: 1,
                                            count_pending: 1,
-                                           duration: 1.5,
+                                           overall_duration: 1.5,
                                            count_of_scores: 1
     ))
   end
@@ -19,7 +19,7 @@ describe "projects/edit" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", 
                   spec_score_api.project_path(@project), "post" do
-      assert_select "input#project_owner_id[name=?]", 
+      assert_select "select#project_owner_id[name=?]", 
                     "project[owner_id]"
       assert_select "input#project_count_specs[name=?]", 
                     "project[count_specs]"

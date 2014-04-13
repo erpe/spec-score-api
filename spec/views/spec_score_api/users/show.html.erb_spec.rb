@@ -7,7 +7,7 @@ describe "users/show" do
                                      nick: "Nick",
                                      count_specs: "",
                                      count_succeeded: "",
-                                     count_failures_int: "Count Failures Int",
+                                     count_failures: "1",
                                      overall_duration: 1.5,
                                      count_scores: "",
                                      api_token: "Api Token"
@@ -21,7 +21,7 @@ describe "users/show" do
     rendered.should match(/Nick/)
     rendered.should match(//)
     rendered.should match(//)
-    rendered.should match(/Count Failures Int/)
+    rendered.should match(/1/)
     rendered.should match(/1.5/)
     rendered.should match(//)
     rendered.should match(/Api Token/)

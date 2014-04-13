@@ -1,6 +1,11 @@
 json.extract! @project, 
               :id, 
               :name, 
+              :count_of_scores,
+              :count_succeeded,
+              :count_failures,
+              :count_specs,
+              :count_pending,
+              :overall_duration,
               :created_at, 
-              :updated_at, 
-              :overall_duration
+              :updated_at 

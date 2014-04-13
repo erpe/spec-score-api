@@ -7,7 +7,7 @@ describe "users/edit" do
                                      nick: "MyString",
                                      count_specs: "",
                                      count_succeeded: "",
-                                     count_failures_int: "MyString",
+                                     count_failures: "",
                                      overall_duration: 1.5,
                                      count_scores: "",
                                      api_token: "MyString"
@@ -23,7 +23,7 @@ describe "users/edit" do
       assert_select "input#user_nick[name=?]", "user[nick]"
       assert_select "input#user_count_specs[name=?]", "user[count_specs]"
       assert_select "input#user_count_succeeded[name=?]", "user[count_succeeded]"
-      assert_select "input#user_count_failures_int[name=?]", "user[count_failures_int]"
+      assert_select "input#user_count_failures[name=?]", "user[count_failures]"
       assert_select "input#user_overall_duration[name=?]", "user[overall_duration]"
       assert_select "input#user_count_scores[name=?]", "user[count_scores]"
       assert_select "input#user_api_token[name=?]", "user[api_token]"

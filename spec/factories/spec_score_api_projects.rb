@@ -5,12 +5,12 @@ FactoryGirl.define do
   factory :project, class: 'SpecScoreApi::Project' do
     association :owner, factory: :user
     name { Faker::Lorem.sentence(3) }
-    count_specs 1
-    count_succeeded 1
-    count_failures 1
-    count_pending 1
-    overall_duration 1.5
-    count_of_scores 1
+    count_specs 0
+    count_succeeded 0
+    count_failures 0
+    count_pending 0
+    overall_duration 0.0
+    count_of_scores 0
     token { Digest::MD5.hexdigest("test")  }
   end
 end

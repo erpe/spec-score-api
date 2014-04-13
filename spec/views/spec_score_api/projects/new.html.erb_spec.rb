@@ -18,7 +18,7 @@ describe "projects/new" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", spec_score_api.projects_path, "post" do
-      assert_select "input#project_owner_id[name=?]", "project[owner_id]"
+      assert_select "select#project_owner_id[name=?]", "project[owner_id]"
       assert_select "input#project_count_specs[name=?]", "project[count_specs]"
       assert_select "input#project_count_succeeded[name=?]", "project[count_succeeded]"
       assert_select "input#project_count_failures[name=?]", "project[count_failures]"
