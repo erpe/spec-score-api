@@ -54,5 +54,11 @@ describe 'Projects' do
       expect(response).to be_success
       expect(json['count_pending']).to eq(@project.scores.count)
     end
+
+    it 'returns owner' do
+      get spec_score_api.project_path(@project, format: :json)
+      expect(response).to be_success
+      expect(json['owner']['id']).to eq(@project.owner.id)
+    end
   end
 end
